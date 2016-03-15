@@ -89,6 +89,8 @@ public class MainActivity extends Activity{
                 refresh();
             }
         });
+
+        checkFirstRun();
     }
 
     @Override
@@ -257,6 +259,16 @@ public class MainActivity extends Activity{
                 Log.e(TAG, e.getMessage());
             }
             return null;
+        }
+    }
+
+    public void checkFirstRun(){
+        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
+
+        if(isFirstRun){
+            Toast.makeText(this, "Click on the BTC text to change the amount of BTC converting", Toast.LENGTH_LONG).show();
+
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isFirstRun", false).apply();
         }
     }
 }

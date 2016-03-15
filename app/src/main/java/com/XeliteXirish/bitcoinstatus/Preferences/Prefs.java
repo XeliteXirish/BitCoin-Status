@@ -28,6 +28,10 @@ public class Prefs {
         return Double.parseDouble(getBtcString(context));
     }
 
+    public static int getBtcInt(Context context){
+        return Integer.parseInt(getBtcString(context));
+    }
+
     public static String getBtcString(Context context) {
         SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         return preferences.getString(KEY_BTC, "0");
