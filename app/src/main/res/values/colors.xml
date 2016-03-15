@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4b3d9d</color>
-    <color name="colorPrimaryDark">#1a73a2</color>
+    <color name="colorPrimary">#0C3A61</color>
+    <color name="colorPrimaryDark">#0C7E61</color>
 
     <color name="colorAccent">#304ffe</color>
+
+    <color name="colorGradientTop">@color/colorPrimaryDark</color>
+    <color name="colorGradientBottom">@color/colorPrimary</color>
 
     <color name="colorTransperent">#00ffffff</color>
 </resources>

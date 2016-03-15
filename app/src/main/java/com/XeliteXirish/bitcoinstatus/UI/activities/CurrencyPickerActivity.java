@@ -5,6 +5,7 @@ import android.support.v4.app.ListFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,16 +37,22 @@ public class CurrencyPickerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         CurrencyPickerFragment fragment = new CurrencyPickerFragment();
-        getSupportFragmentManager().beginTransaction().replace(android.R.id.content, fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutList, fragment).commit();
 
     }
 
-    public static class CurrencyPickerFragment extends ListFragment{
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    public static class CurrencyPickerFragment extends ListFragment {
 
         JSONObject jsonCurrencies;
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
 
             this.getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
@@ -82,7 +89,6 @@ public class CurrencyPickerActivity extends AppCompatActivity {
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage());
             }
-            return null;
         }
 
         @Override

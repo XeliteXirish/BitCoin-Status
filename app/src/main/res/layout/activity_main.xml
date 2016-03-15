@@ -48,5 +48,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="25dp"
-        android:layout_marginRight="25dp"/>
+        android:layout_marginRight="25dp"
+        android:src="@drawable/currency_icon"/>
 </RelativeLayout>

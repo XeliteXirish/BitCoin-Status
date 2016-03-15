@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.XeliteXirish.bitcoinstatus.Preferences.Prefs;
 import com.XeliteXirish.bitcoinstatus.UI.activities.MainActivity;
 import com.XeliteXirish.shaun.bitcoinstatus.R;
+
+import org.apache.commons.lang3.math.NumberUtils;
 
 public class BtcAmountDialog extends Dialog{
 
@@ -38,9 +41,15 @@ public class BtcAmountDialog extends Dialog{
         this.buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Prefs.setBtc(context, btcAmount.getText().toString());
-                INSTANCE.refresh();
-                dismiss();
+                if(btcAmount.getText() != null) {
+                    if (NumberUtils.isNumber(btcAmount.getText().toString())) {
+                        Prefs.setBtc(context, btcAmount.getText().toString());
+                        INSTANCE.refresh();
+                        dismiss();
+                    } else {
+                        Toast.makeText(context, "Please enter a number", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
     }
