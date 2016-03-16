@@ -37,7 +37,7 @@ public class BtcAmountDialog extends Dialog{
         intSeekbarProgress = Prefs.getBtcInt(context);
 
         this.seekBarAmount = (SeekBar) findViewById(R.id.seekBarAmount);
-        this.seekBarAmount.setMax(20);
+        this.seekBarAmount.setMax(30);
         this.seekBarAmount.setProgress(intSeekbarProgress);
         this.seekBarAmount.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
